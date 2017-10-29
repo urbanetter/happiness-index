@@ -2,6 +2,7 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/happiness.css">
 {% endblock %}
 
 {% block javascripts %}
@@ -15,8 +16,15 @@
     <nav class="navbar navbar-light bg-light">
         <span class="navbar-brand mb-0 h1">Happiness Index</span>
     </nav>
-    <video autoplay></video>
-    <button>How happy am I?</button>
-    <canvas></canvas>
-    <h2></h2>
+    <div class="card">
+        <div class="card-body">
+            <div>
+                <video autoplay></video>
+                <canvas></canvas>
+            </div>
+            <div>
+                <h2></h2>
+            </div>
+        </div>
+    </div>
 {% endblock %}

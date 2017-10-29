@@ -12,14 +12,13 @@ $(document).ready(function () {
     .catch(function(error) {
       console.error(error);
     });
-  $('button').on('click', function () {
+  $(video).on('click', function () {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext('2d').
       drawImage(video, 0, 0, canvas.width, canvas.height);
-    stream.getTracks()[0].stop();
-    $(video).hide();
     $(this).hide();
+    stream.getTracks()[0].stop();
     $.ajax({
       type: 'POST',
       url: '/happiness',
@@ -27,7 +26,8 @@ $(document).ready(function () {
         base64data: canvas.toDataURL()
       },
       success: function(data) {
-        $('h2').text('Happiness Index: ' + data[0].faceAttributes.emotion.happiness)
+        var index = (parseFloat(data[0].faceAttributes.emotion.happiness) * 4) + 1;
+        $('h2').text('Happiness Index: ' + index.toFixed(2))
       }
     });
   })
