@@ -26,9 +26,14 @@ $(document).ready(function () {
         base64data: canvas.toDataURL()
       },
       success: function(data) {
-        var index = (parseFloat(data[0].faceAttributes.emotion.happiness) * 4) + 1;
-        $('h2').text('Happiness Index: ' + index.toFixed(2))
+        var predictions = data[0].faceAttributes;
+        var index = (parseFloat(predictions.emotion.happiness) * 4) + 1;
+        $('h2').text('Happiness Index: ' + index.toFixed(2) + ' out of 5');
+        $('p').text(predictions.gender + ', ' + predictions.age + ' years old, by the way.');
       }
     });
+  });
+  $(canvas).on('click', function () {
+    location.reload();
   })
 });
