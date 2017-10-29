@@ -4,7 +4,7 @@ $(document).ready(function () {
   var stream;
   navigator
     .mediaDevices
-    .getUserMedia({audio: false, video: true})
+    .getUserMedia({audio: false, video: {facingMode: 'user'}})
     .then(function (videoStream) {
       video.srcObject = videoStream;
       stream = videoStream;
